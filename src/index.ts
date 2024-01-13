@@ -2,9 +2,9 @@ export interface Env {
 }
 
 function v1(req: Request): Promise<Response> {
-  let req2 = req
+  let req2 = {...req};
   req2.url = decodeURIComponent(new URL(req.url).searchParams.get("url"));
-  return fetch(req2);
+  return fetch(...req2);
 }
 
 export default {
