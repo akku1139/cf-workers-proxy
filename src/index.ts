@@ -3,11 +3,6 @@ export interface Env {
 
 function v1(r: Request): Promise<Response> {
   return fetch(decodeURIComponent(new URL(r.url).searchParams.get("url")), {
-    /*
-    method: r.method,
-    headers: r.headers,
-    body: r.body
-    */
     ...r
   });
 }
