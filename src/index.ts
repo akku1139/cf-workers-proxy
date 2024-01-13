@@ -1,10 +1,15 @@
 export interface Env {
 }
 
-function v1(req: Request): Promise<Response> {
-  let req2 = {...req};
-  req2.url = decodeURIComponent(new URL(req.url).searchParams.get("url"));
-  return fetch(req2);
+function v1(r: Request): Promise<Response> {
+  return fetch(decodeURIComponent(new URL(r.url).searchParams.get("url")), {
+    /*
+    method: r.method,
+    headers: r.headers,
+    body: r.body
+    */
+    ...r
+  });
 }
 
 export default {
