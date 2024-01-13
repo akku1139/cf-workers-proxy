@@ -1,7 +1,7 @@
 export interface Env {
 }
 
-async function v1(url:String): Promise<Response>{
+async function v1(url:String): Promise<Response> {
   return new Response('Hello World!');
 }
 
