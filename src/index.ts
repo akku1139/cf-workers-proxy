@@ -2,7 +2,8 @@ export interface Env {
 }
 
 async function v1(req: Request): Response {
-  return fetch((req=decodeURIComponent(new URL(req.url).searchParams.get("url"))));
+  req.url = decodeURIComponent(new URL(req.url).searchParams.get("url"));
+  return fetch(req);
 }
 
 export default {
