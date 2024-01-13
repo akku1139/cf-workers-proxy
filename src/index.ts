@@ -1,7 +1,7 @@
 export interface Env {
 }
 
-async function v1(req: Request): Response {
+function v1(req: Request): Promise<Response> {
   req.url = decodeURIComponent(new URL(req.url).searchParams.get("url"));
   console.log(req);
   return fetch(req);
