@@ -9,12 +9,16 @@ async function v1(req: Request): Response {
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    try{
     const url:URL = new URL(request.url);
     switch (url.pathname) {
       case "/v1":
-        return await v1(req);
+        return v1(req);
       default:
         break;
+    }
+    } catch(e){
+      console.log(e)
     }
 	}
 };
